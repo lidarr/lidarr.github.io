@@ -71,7 +71,7 @@
         loadSwagger('v3')
       }
 
-      function loadSwagger(apiVersion='v3'){
+      function loadSwagger(apiVersion='https://raw.githubusercontent.com/lidarr/Lidarr/develop/src/Lidarr.Api.V1/swagger.json'){
         const ui = SwaggerUIBundle({
           url: `${apiVersion}`,
           dom_id: '#swagger-ui',
