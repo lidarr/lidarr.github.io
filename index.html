@@ -16,7 +16,7 @@
     <meta http-equiv=Content-Type content="text/html; charset=utf-8">
     <meta name=viewport content="width=device-width, initial-scale=1.0">
     <link rel=stylesheet type=text/css href=//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css>
-    <link rel=stylesheet type=text/css href=css/bootstrap-overrides.css?v=733258503fb3cf5828de7332f1b0228d>
+    <link rel=stylesheet type=text/css href=css/bootstrap-overrides.css?v=0032cb25c1f3202a92ff30daf9c072d5>
     <link rel=stylesheet type=text/css href=https://use.fontawesome.com/releases/v5.6.3/css/all.css integrity=sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/ crossorigin=anonymous>
     <link rel=stylesheet type=text/css href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css>
     <link rel=stylesheet type=text/css href=css/theme.css?v=f719053e3cfe4c1db5d57d58fd0d7650>
@@ -412,18 +412,30 @@ sudo systemctl enable --now Lidarr</code></pre>
                                 <h5>Volumes and Paths</h5>
                                 <p>
                                     There are two common problems with Docker volumes: Paths that differ between the Lidarr and download client container and paths that prevent fast moves and hard links.<br>
-                                    The first is a problem because the download client will report a download's path as <code>/torrents/Some.Artist/</code>, but in the Lidarr container that might be at
+                                    The first is a problem because the download client will report a download's path as
+                                    <code>/torrents/Some.Artist/</code>, but in the Lidarr container that might be at
                                     <code>/downloads/Some.Artist/</code>. The second is a performance issue and causes problems for seeding torrents. Both problems can be solved with well planned, consistent paths.
                                 </p>
                                 <p>
-                                    Most Docker images suggest paths like <code>/music</code> and <code>/downloads</code>. This causes slow moves and doesn't allow hard links because they
-                                    are considered two different file systems <i>inside</i> the container. Some also recommend paths for the download client container that are different from the Lidarr container, like <code>/torrents</code>.<br>
-                                    The best solution is to use a single, common volume <i>inside</i> the containers, such as <code>/data</code>.
-                                    Your Music would be in <code>/data/Music</code>, torrents in <code>/data/downloads/torrents</code> and/or usenet downloads in <code>/data/downloads/usenet</code>.
+                                    Most Docker images suggest paths like
+                                    <code>/music</code>
+                                    and
+                                    <code>/downloads</code>. This causes slow moves and doesn't allow hard links because they
+                                    are considered two different file systems
+                                    <i>inside</i>
+                                    the container. Some also recommend paths for the download client container that are different from the Lidarr container, like
+                                    <code>/torrents</code>.<br>
+                                    The best solution is to use a single, common volume
+                                    <i>inside</i>
+                                    the containers, such as
+                                    <code>/data</code>.
+                                    Your Music would be in
+                                    <code>/data/Music</code>, torrents in
+                                    <code>/data/downloads/torrents</code>
+                                    and/or usenet downloads in
+                                    <code>/data/downloads/usenet</code>.
                                 </p>
-                                <p>
-                                    If this advice is not followed, you may have to configure a Remote Path Mapping in the Lidarr web UI (Settings &rsaquo; Download Clients).
-                                </p>
+                                <p>If this advice is not followed, you may have to configure a Remote Path Mapping in the Lidarr web UI (Settings &rsaquo; Download Clients).</p>
                                 <h5>Ownership and Permissions</h5>
                                 <p>
                                     Permissions and ownership of files is one of the most common problems for Lidarr users, both inside and outside Docker. Most images have environment variables that can be used to override
@@ -432,7 +444,11 @@ sudo systemctl enable --now Lidarr</code></pre>
                                     Keep in mind that Lidarr will need read and write to the download folders as well as the final folders.
                                 </p>
                                 <p>
-                                    <i>For a more detailed explanation of these issues, see <a href=https://wiki.servarr.com/Docker_Guide>The Best Docker Setup and Docker Guide</a> wiki article.</i>
+                                    <i>
+  For a more detailed explanation of these issues, see
+        <a href=https://wiki.servarr.com/Docker_Guide>The Best Docker Setup and Docker Guide</a>
+        wiki article.
+      </i>
                                 </p>
                             </dd>
                             <dt><span class=step>2</span>Install Lidarr</dt>
@@ -442,17 +458,29 @@ sudo systemctl enable --now Lidarr</code></pre>
                                     and maintenance of them will depend on the route you choose.
                                 <ul>
                                     <li>
-                                        <h5><a href=https://hub.docker.com/r/hotio/Lidarr>hotio/Lidarr:release</a></h5>
+                                        <h5>
+                                            <a href=https://hub.docker.com/r/hotio/Lidarr>hotio/Lidarr:release</a>
+                                        </h5>
                                         <p>
-                                            <a href=https://hotio.dev>hotio</a> doesn't specify any default volumes, besides <code>/config</code>. Images are automatically updated 2x in 1 hour if upstream changes are found.
-                                            Read the <a href=https://hotio.dev/containers/Lidarr>instructions</a> on how to install the image.
+                                            <a href=https://hotio.dev>hotio</a>
+                                            doesn't specify any default volumes, besides
+                                            <code>/config</code>. Images are automatically updated 2x in 1 hour if upstream changes are found.
+                                            Read the
+                                            <a href=https://hotio.dev/containers/Lidarr>instructions</a>
+                                            on how to install the image.
                                         </p>
                                     </li>
                                     <li>
-                                        <h5><a href=https://hub.docker.com/r/linuxserver/Lidarr>ghcr.io/linuxserver/Lidarr:latest</a></h5>
+                                        <h5>
+                                            <a href=https://hub.docker.com/r/linuxserver/lidarr>ghcr.io/linuxserver/lidarr:latest</a>
+                                        </h5>
                                         <p>
-                                            <a href=//www.linuxserver.io>linuxserver.io</a> is one of the most prolific and popular Docker image maintainers. They also maintain images for most of the popular download clients as well.
-                                            LinuxServer specifies a couple of default volumes such as <code>/music</code> and <code>/downloads</code>. Our recommendation is to use a single volume for the data, as mentioned above.
+                                            <a href=//www.linuxserver.io>linuxserver.io</a>
+                                            is one of the most prolific and popular Docker image maintainers. They also maintain images for most of the popular download clients as well.
+                                            LinuxServer specifies a couple of default volumes such as
+                                            <code>/music</code>
+                                            and
+                                            <code>/downloads</code>. Our recommendation is to use a single volume for the data, as mentioned above.
                                         </p>
                                     </li>
                                 </ul>
@@ -536,7 +564,7 @@ sudo systemctl enable --now Lidarr</code></pre>
         hljs.initHighlightingOnLoad();
     </script>
     <script src=js/theme.js?v=453b4ff1a4f41c49315a28f79aa5ea83></script>
-    <script type=text/javascript src=js/index-slider.js?v=072006930bd52788bb7ab0a7d16861f7></script>
+    <script type=text/javascript src=js/index-slider.js?v=48ba37f65a8c9499e4833ad1924fccb7></script>
 </body>
 
 </html>
