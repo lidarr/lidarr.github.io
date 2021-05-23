@@ -169,19 +169,19 @@
             <div class=row>
                 <ul class="nav nav-tabs nav-justified">
                     <li class="nav-item active">
-                        <a class="nav-link active" data-toggle=tab href=#downloads-v1-windows><i class="fab fa-windows"></i> Windows</a>
+                        <a class="nav-link active" data-toggle=tab href=#downloads-v1-windows><i class="fab fa-windows"></i>Windows</a>
                     </li>
                     <li class=nav-item>
-                        <a class=nav-link data-toggle=tab href=#downloads-v1-linux><i class="fab fa-linux"></i> Linux</a>
+                        <a class=nav-link data-toggle=tab href=#downloads-v1-linux><i class="fab fa-linux"></i>Linux</a>
                     </li>
                     <li class=nav-item>
-                        <a class=nav-link data-toggle=tab href=#downloads-v1-macos><i class="fab fa-apple"></i> macOS</a>
+                        <a class=nav-link data-toggle=tab href=#downloads-v1-macos><i class="fab fa-apple"></i>macOS</a>
                     </li>
                     <li class=nav-item>
-                        <a class=nav-link data-toggle=tab href=#downloads-v1-nas><i class="fas fa-hdd"></i> NAS</a>
+                        <a class=nav-link data-toggle=tab href=#downloads-v1-nas><i class="fas fa-hdd"></i>NAS</a>
                     </li>
                     <li class=nav-item>
-                        <a class=nav-link data-toggle=tab href=#downloads-v1-docker><i class="fab fa-docker"></i> Docker</a>
+                        <a class=nav-link data-toggle=tab href=#downloads-v1-docker><i class="fab fa-docker"></i>Docker</a>
                     </li>
                     <li class=nav-item>
                         <a class=nav-link data-toggle=tab href=#downloads-v1-other><i class="fas fa-ellipsis-v"></i>&nbsp;&nbsp;Others</a>
@@ -194,9 +194,9 @@
                             <dd>
                                 <p>Lidarr is supported natively on Windows. Lidarr can be installed on Windows as Windows Service or system tray application.</p>
                                 <p>
-                                    A Windows Service runs even when the user is not logged in, but special care must be taken since Windows Services cannot access network drives (X:\\ mapped drives) without special configuration steps.<br>
+                                    A Windows Service runs even when the user is not logged in, but special care must be taken since Windows Services cannot access network drives (X:\\\\\\\\ mapped drives) without special configuration steps.<br>
                                     Additionally the Windows Service runs under the 'Local Service' account, by default this account does not have permissions to access your user's home directory unless permissions have been assigned manually. This is particularly relevant when using download clients that are configured to download to your home directory.<br>
-                                    It's therefore advisable to install Radarr as a system tray application if the user can remain logged in. The option to do so is provided during the installer.
+                                    It's therefore advisable to install Lidarr as a system tray application if the user can remain logged in. The option to do so is provided during the installer.
                                 </p>
                                 <div class="alert alert-warning">
                                     Lidarr v0.8 no longer supports Windows XP. At this time Windows 7 <i>should</i> still work, but we will not maintain Windows 7 support. Note that KB2533623 and Microsoft Visual C++ 2015 Redistributable Update 3 are needed to run .net core apps on Windows 7
@@ -205,8 +205,8 @@
                             <dt><span class=step>1</span>Install Lidarr</dt>
                             <dd>
                                 <p>Download the Windows Installer with the following link and execute it.</p>
-                                <a class="btn btn-Lidarr" href=https://Lidarr.servarr.com/v1/update/master/updatefile?os=windows&runtime=netcore&arch=x64&installer=true>Download Windows x64 Installer</a>
-                                <a class="btn btn-Lidarr" href=https://Lidarr.servarr.com/v1/update/master/updatefile?os=windows&runtime=netcore&arch=x86&installer=true>Download Windows x86 Installer</a>
+                                <a class="btn btn-Lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=windows&runtime=netcore&arch=x64&installer=true>Download Windows x64 Installer</a>
+                                <a class="btn btn-Lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=windows&runtime=netcore&arch=x86&installer=true>Download Windows x86 Installer</a>
                             </dd>
                             <dt><span class=step>2</span>View Lidarr</dt>
                             <dd>
@@ -223,7 +223,7 @@
                                 <h5>Manual Install</h5>
                                 <p>
                                     It is possible to install Lidarr manually using the x64
-                                    <a href=https://Lidarr.servarr.com/v1/update/master/updatefile?os=windows&runtime=netcore&arch=x64>.zip download</a>. However in that case you must manually deal with dependencies, installation and permissions.
+                                    <a href=https://lidarr.servarr.com/v1/update/master/updatefile?os=windows&runtime=netcore&arch=x64>.zip download</a>. However in that case you must manually deal with dependencies, installation and permissions.
                                 </p>
                             </div>
                         </div>
@@ -232,7 +232,10 @@
                         <div>
                             <ul class="nav nav-pills">
                                 <li class="nav-item active">
-                                    <a class="nav-link active" data-toggle=pill href=#downloads-v1-linux-archlinux><img src=logo/archlinux.svg class="icon svg"> ArchLinux</a>
+                                    <a class="nav-link active" data-toggle=pill href=#downloads-v1-linux-archlinux><img src=logo/archlinux.svg class="icon svg">ArchLinux</a>
+                                </li>
+                                <li class=nav-item>
+                                    <a class=nav-link data-toggle=pill href=#downloads-v1-linux-debianubuntu><i class="fab fa-ubuntu"></i>Debian or Ubuntu</a>
                                 </li>
                                 <li class=nav-item>
                                     <a class=nav-link data-toggle=pill href=#downloads-v1-linux-other><i class="fas fa-ellipsis-v"></i>&nbsp;&nbsp;Others</a>
@@ -285,25 +288,33 @@ sudo systemctl enable --now Lidarr</code></pre>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="tab-pane fade" id=downloads-v1-linux-debianubuntu role=tabpanel>
+                                    <dl class=install-steps>
+                                        <dt>Installation</dt>
+                                        <dd>
+                                            <p>
+                                                The community has put together an
+                                                <a href=https://wiki.servarr.com/Lidarr_Installation#Debian.2FUbuntu>Installation Guide</a>
+                                                to help you install this on Debian or Ubuntu.
+                                            </p>
+                                        </dd>
+                                    </dl>
+                                </div>
                                 <div class="tab-pane fade" id=downloads-v1-linux-other role=tabpanel>
                                     <div class=install-description>
-                                        <div class="alert alert-info">
-                                            Please contact us if you wish to port Lidarr for any other distribution that the ones already listed.
-                                        </div>
-                                        <p>
-                                            Generic .tar.gz downloads are available for linux, but dependencies, installation and permissions will need to be done manually.
-                                        </p>
+                                        <div class="alert alert-info">Please contact us if you wish to port Lidarr for any other distribution that the ones already listed.</div>
+                                        <p>Generic .tar.gz downloads are available for linux, but dependencies, installation and permissions will need to be done manually.</p>
                                         <div>
-                                            <a class="btn btn-Lidarr" href=https://Lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=x64>Download Linux x64 (netcore)</a>
+                                            <a class="btn btn-Lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=x64>Download Linux x64 (netcore)</a>
                                         </div>
                                         <div>
-                                            <a class="btn btn-Lidarr" href=https://Lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=arm>Download Linux arm (netcore)</a>
+                                            <a class="btn btn-Lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=arm>Download Linux arm (netcore)</a>
                                         </div>
                                         <div>
-                                            <a class="btn btn-Lidarr" href=https://Lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=arm64>Download Linux arm64 (netcore)</a>
+                                            <a class="btn btn-Lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=arm64>Download Linux arm64 (netcore)</a>
                                         </div>
                                         <div>
-                                            <a class="btn btn-Lidarr" href=https://Lidarr.servarr.com/v1/update/master/updatefile?os=linuxmusl&runtime=netcore&arch=x64>Download Linux Musl x64 (netcore)</a>
+                                            <a class="btn btn-Lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=linuxmusl&runtime=netcore&arch=x64>Download Linux Musl x64 (netcore)</a>
                                         </div>
                                     </div>
                                 </div>
@@ -461,7 +472,7 @@ sudo systemctl enable --now Lidarr</code></pre>
                                 <ul>
                                     <li>
                                         <h5>
-                                            <a href=https://hub.docker.com/r/hotio/Lidarr>hotio/Lidarr:release</a>
+                                            <a href=ghcr.io/hotio/lidarr:release>hotio/lidarr:release</a>
                                         </h5>
                                         <p>
                                             <a href=https://hotio.dev>hotio</a>
@@ -474,7 +485,7 @@ sudo systemctl enable --now Lidarr</code></pre>
                                     </li>
                                     <li>
                                         <h5>
-                                            <a href=https://hub.docker.com/r/linuxserver/lidarr>ghcr.io/linuxserver/lidarr:latest</a>
+                                            <a href=ghcr.io/linuxserver/lidarr:latest>linuxserver/lidarr:latest</a>
                                         </h5>
                                         <p>
                                             <a href=//www.linuxserver.io>linuxserver.io</a>
